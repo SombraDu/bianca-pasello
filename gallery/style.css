@@ -1,0 +1,217 @@
+/* ------------------------- */
+/* IMPORT KARANTINA FONT      */
+/* ------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ------------------------- */
+/* BODY                      */
+/* ------------------------- */
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: black;
+    font-family: 'Karantina', sans-serif;
+    color: white;
+    text-align: center;
+}
+
+/* HEADER IMAGE */
+.header-banner img {
+    width: 100%;
+    display: block;
+    margin: 40px auto 20px;
+}
+
+.logo-wrap {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ====== GALLERY GRID ====== */
+
+/* ===== GALLERY (NO CROPPING) ===== */
+
+.gallery-grid {
+    width: 90%;
+    max-width: 1400px;
+    margin: 60px auto;
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+}
+.gallery-group-b1,
+.gallery-group-b2,
+.gallery-group-b3 {
+    grid-column: 1 / -1;   /* 从第1列跨到最后一列，整行铺满 */
+}
+
+/* 图片保持原比例，不裁切 */
+.g {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 第一行：三个并排（自然高度） */
+.g1 { grid-column: 1; }
+.g2 { grid-column: 2; }
+.g3 { grid-column: 3; }
+
+/* 第二行：左侧大图 */
+.g4 { 
+    grid-column: 1 / span 2; /* 占两列 */
+    width: 100%;
+}
+
+/* 右侧竖向叠放 5 + 6 */
+.right-stack {
+    grid-column: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+/* 通用设置：不裁切图片 */
+.imgB {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* ---------- B1: 7 ---------- */
+
+.gallery-group-b1 {
+    width: 100%;
+    margin: 50px 0;
+}
+
+
+
+/* ---------- B2: 8, 9, 10 ---------- */
+
+.gallery-group-b2 {
+    width: 100%;
+    margin: 50px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+}
+
+/* 第一行 */
+.imgB8 { grid-column: 1; grid-row: 1; }
+.imgB9 { grid-column: 2; grid-row: 1; }
+
+/* 第二行 */
+.imgB10 { grid-column: 1; grid-row: 2; }
+/* 右下空着 → 不放任何东西 */
+
+
+
+/* ---------- B3: 11, 12, 13 ---------- */
+
+.gallery-group-b3 {
+    width: 100%;
+    margin: 50px 0 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+}
+
+/* 第一行 */
+.imgB11 { grid-column: 1; grid-row: 1; }
+.imgB12 { grid-column: 2; grid-row: 1; }
+
+/* 第二行 */
+.imgB13 { grid-column: 2; grid-row: 2; }
+/* 左下空着 → 不放任何东西 */
+
+
+
+/* ================================ */
+/* SCROLL REVEAL INITIAL STATE      */
+/* ================================ */
+.g, .imgB {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* When JS adds .reveal-visible */
+.reveal-visible {
+    opacity: 1 !important;
+    transform: translateY(0px) !important;
+}
+
+
+/* ------------------------- */
+/* FOOTER NAVIGATION         */
+/* ------------------------- */
+.footer {
+    margin-top: 50px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.footer a {
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    padding: 10px 22px;
+    background: black;     /* 默认黑底 */
+    color: white;
+    margin: 0 25px;
+    font-size: 26px;
+    letter-spacing: 2px;
+    transition: all 0.25s ease, color 0.25s ease;
+}
+
+.footer a:hover {
+    background: white;     /* hover 白底 */
+    color: black;          /* hover 黑字 */
+}
+
+/* ------------------------- */
+/* RESPONSIVE ADJUSTMENTS    */
+/* ------------------------- */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    .logo {
+        width: 200px;
+    }
+    .left-sword,
+    .right-sword {
+        width: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .logo {
+        width: 180px;
+    }
+    .left-sword,
+    .right-sword {
+        width: 80px;
+    }
+    .box h2 {
+        font-size: clamp(36px, 8vw, 64px);
+    }
+}

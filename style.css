@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background: black;
+}
+
+.hero-section {
+    width: 100%;
+    height: 100vh;
+    background: black;
+    overflow: hidden;   /* 保留 */
+    position: relative;
+}
+
+/* 左侧剑图片 */
+.left-sword {
+    position: absolute;
+    top: 23%;           /* 你可以微调 */
+    left: -60%;         /* 初始在屏幕左外 */
+    width: 90%;
+    transform: translateY(-50%);
+}
+
+/* 右侧整体（剑 + 文字）图片 */
+.right-sword {
+    position: absolute;
+    bottom: 0%;        /* 你可以微调 */
+    right: -60%;        /* 初始在屏幕右外 */
+    width: 90%;
+}
+
+/* 动画类（JS 添加） */
+.animate-left {
+    animation: slideLeft 1.8s ease-out forwards;
+}
+
+.animate-right {
+    animation: slideRight 1.8s ease-out forwards;
+}
+
+/* 左滑入 */
+@keyframes slideLeft {
+    0% { left: -60%; }
+    100% { left: -5%; }
+}
+
+/* 右滑入 */
+@keyframes slideRight {
+    0% { right: -60%; }
+    100% { right: -5%; }
+}
+
+/* === FONT === */
+@import url('https://fonts.googleapis.com/css2?family=Karantina:wght@400&display=swap');
+
+/* === BANNER SECTION === */
+.banner-section {
+    width: 100%;
+    background: white;
+    padding: 40px 0;
+    overflow: hidden;
+}
+
+.banner-row {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.banner-track {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* 一个 item = 文本 + 链条 */
+.banner-item {
+    display: inline-flex;
+    align-items: center;
+}
+
+.banner-item span {
+    font-family: "Karantina", sans-serif;
+    font-size: 64px;
+    color: black;
+    white-space: nowrap;
+}
+
+.banner-item img {
+    height: 70px;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+/* 滚动动画 */
+.banner-top .banner-track {
+    animation: scroll-left 20s linear infinite;
+}
+
+.banner-bottom .banner-track {
+    animation: scroll-right 20s linear infinite;
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.banner-bottom .banner-track {
+    animation: scroll-left 20s linear infinite reverse;
+}
+
+/* ===== ABOUT SECTION ===== */
+
+.about-section {
+    background: #000;
+    color: white;
+    width: 100%;
+    padding: 60px 0 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Layout */
+.about-container {
+    width: 80%;
+    max-width: 1300px;
+    display: grid;
+    grid-template-columns: 2fr 3fr;  /* 左 BP 2，右 ABOUT 3 */
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+
+/* BP Photo */
+.about-photo img {
+    width: 100%;
+    border-radius: 50%;
+    display: block;
+}
+
+/* Thorn Frame */
+.about-frame {
+    position: relative;
+}
+
+.about-frame-img {
+    width: 100%;
+    pointer-events: none;
+}
+
+.about-text {
+    position: absolute;
+    top: 10%;
+    left: 8%;
+    right: 8%;
+    bottom: 10%;
+    font-family: "Grenze Gotisch", serif;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.about-text h2 {
+    font-family: "Grenze Gotisch", serif;
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+/* Name (剑 + LOGO) */
+.name-section {
+    width: 100%;
+}
+
+.name-section img {
+    width: 100%;           /* 始终占满视口宽度 */
+    max-width: none;       /* 不限制最大宽 */
+    display: block;
+    margin: 40px auto 20px;
+}
+
+
+/* PORTALS */
+.portal-links {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.portal-links {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.portal-links a {
+    font-family: "Karantina", sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    padding: 10px 22px;
+    background: black;     /* 默认黑底 */
+    color: white;          /* 默认白字 */
+    border: none;          /* 不要描边 */
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.portal-links a:hover {
+    background: white;     /* hover 白底 */
+    color: black;          /* hover 黑字 */
+}
+
+
+/* Hover: 黑字白底 */
+.portal-links a:hover {
+    background: white;
+    color: black;
+}
+
+.about-text,
+.about-text p{
+    font-family: "Grenze Gotisch", serif;
+    font-weight: 300;
+}
+
+
+/* 如果你有单独写过 */
+.about-text h2 {
+    font-family: "Grenze Gotisch", serif;
+    font-weight: 300;   /* 标题也走 300，有需要再单独加粗 */
+}
