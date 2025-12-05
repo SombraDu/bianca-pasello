@@ -208,7 +208,7 @@ html, body {
     background: black;     /* 默认黑底 */
     color: white;          /* 默认白字 */
     border: none;          /* 不要描边 */
-    transition: background 0.25s ease, color 0.25s ease;
+    transition: all 0.25s ease, color 0.25s ease;
 }
 
 .portal-links a:hover {
